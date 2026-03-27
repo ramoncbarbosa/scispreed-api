@@ -1,5 +1,8 @@
 package dev.neuroncrafters.scispread_api.Member;
 
+import lombok.Getter;
+
+@Getter
 public enum MemberRoleEnum {
     PESQUISADOR("Pesquisador"),
     PESQUISADORA("Pesquisadora");

@@ -1,5 +1,8 @@
 package dev.neuroncrafters.scispread_api.User;
 
+import lombok.Getter;
+
+@Getter
 public enum UserTituloEnum {
     GRADUANDA("Graduanda"),
     GRADUANDO("Graduando"),
