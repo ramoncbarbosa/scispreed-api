@@ -1,6 +1,5 @@
 package dev.neuroncrafters.scispread_api.Member;
 
-import dev.neuroncrafters.scispread_api.Member.MemberRoleEnum;
 import dev.neuroncrafters.scispread_api.User.UserTituloEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
