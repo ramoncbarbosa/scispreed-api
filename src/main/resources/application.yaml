@@ -2,7 +2,11 @@ spring:
   application:
     name: scispread-api
   datasource:
-    url: jdbc:postgresql://localhost:5433/scispread-db
+    url: jdbc:postgresql://localhost:5433/scispread_db
     username: postgres
     password: postgres
     driver-class-name: org.postgresql.Driver
+  flyway:
+    enabled: true
+    locations: classpath:/db/migration
+    baseline-on-migration: true
