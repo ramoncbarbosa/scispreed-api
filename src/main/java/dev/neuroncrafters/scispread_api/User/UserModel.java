@@ -25,6 +25,9 @@ public class UserModel {
     @Column(nullable = false)
     private String sobrenome;
 
+    @Column(nullable = false)
+    private UserLoginStatusEnum loginStatus;
+
     @Column(unique = true, nullable = false)
     private String email;
 

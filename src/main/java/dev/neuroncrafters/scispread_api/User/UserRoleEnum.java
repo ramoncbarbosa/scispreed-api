@@ -12,7 +12,9 @@ public enum UserRoleEnum {
     BOLSISTA("Bolsista"),
     VOLUNTARIO("Voluntário"),
     TECNICO("Técnico"),
-    TECNICA("Técnica");
+    TECNICA("Técnica"),
+    PESQUISADORA("Pesquisadora"),
+    PESQUISADOR("Pesquisador");
 
     private final String cargo;
 
