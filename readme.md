@@ -61,7 +61,7 @@ API REST documentada via Swagger UI em `/swagger-ui.html`.
 
 ```bash
 # 1. clone o repositório
-git clone https://github.com/seu-user/sci-spread.git
+git clone https://github.com/ramoncbarbosa/sci-spread.git
 cd sci-spread
 
 # 2. suba PostgreSQL e Redis
@@ -173,7 +173,7 @@ REST API documented via Swagger UI at `/swagger-ui.html`.
 
 ```bash
 # 1. clone the repository
-git clone https://github.com/seu-user/sci-spread.git
+git clone https://github.com/ramoncbarbosa/sci-spread.git
 cd sci-spread
 
 # 2. start PostgreSQL and Redis
