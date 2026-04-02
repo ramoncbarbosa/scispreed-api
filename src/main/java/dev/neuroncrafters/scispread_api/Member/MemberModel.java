@@ -33,7 +33,7 @@ public class MemberModel {
     private UserTituloEnum titulacao;
 
     @Column(nullable = false)
-    private String area_de_atuacao;
+    private String areaDeAtuacao;
 
     @Column(nullable = false)
     private String vinculo;
