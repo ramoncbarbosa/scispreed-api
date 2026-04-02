@@ -31,7 +31,8 @@ public class PublicationModel {
 
     @NotBlank
     @Column(nullable = false)
-    private String tipo; //trocar para o enum depois
+    @Enumerated(EnumType.STRING)
+    private PublicationTipoEnum tipoEnum;
 
     @NotBlank
     @Column(nullable = false)
@@ -49,6 +50,6 @@ public class PublicationModel {
 
     @NotBlank
     @Column(nullable = false)
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/mm/yyyy HH:mm:ss")
+    @JsonFormat(pattern = "dd/mm/yyyy")
     private LocalDate dataDaPublicacao;
 }
