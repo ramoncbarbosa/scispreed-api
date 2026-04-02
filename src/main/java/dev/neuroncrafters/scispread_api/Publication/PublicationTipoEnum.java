@@ -9,6 +9,8 @@ public enum PublicationTipoEnum {
     DIVULGACAO_CIENTIFICA("Divulgação Científica"),
     CAPITULO_LIVRO("Capítulo de Livro"),
     LIVRO("Livro"),
+    PAPER("Paper"),
+    RESUMO("Resumo"),
     PATENTE("Patente");
 
     private final String descricao;
