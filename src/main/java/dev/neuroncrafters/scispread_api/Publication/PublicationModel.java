@@ -56,6 +56,11 @@ public class PublicationModel {
 
     @ManyToMany
     @NotNull
+    @JoinTable(
+            name = "publications_cooautores",
+            joinColumns = @JoinColumn(name = "publications_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id")
+    )
     private List<UserModel> cooautores; //caso a revista peça que cadastre coautores
 
     @ManyToOne
