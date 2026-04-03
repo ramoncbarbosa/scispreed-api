@@ -1,16 +1,27 @@
 package dev.neuroncrafters.scispread_api.Publication;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import dev.neuroncrafters.scispread_api.User.UserModel;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import lombok.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name="tb_publications")
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString(exclude = "publications")
+@Getter
+@Setter
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class PublicationModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @EqualsAndHashCode.Include
     private Long id;
 
     @NotBlank
@@ -29,20 +40,24 @@ public class PublicationModel {
     @Column(nullable = false)
     private String urlDoc;
 
-    @NotBlank
+    @NotNull
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private PublicationTipoEnum tipoEnum;
 
-    @NotBlank
-    @Column(nullable = false)
-    private String[] autores; //vincular a UM ou MAIS pesquisadores ou membros
+    @ManyToMany
+    @NotNull
+    private List<UserModel> autores;
 
-    @Column(nullable = true)
-    private String orientador; //vincular a UM pesquisador ou membro
+    @ManyToMany
+    @NotNull
+    private List<UserModel> cooautores; //caso a revista peça que cadastre coautores
 
-    @Column(nullable = true)
-    private String coorientador; //pode ou não ter um coorientador
+    @ManyToOne
+    private UserModel orientador; //vincular a UM pesquisador ou membro
+
+    @ManyToOne
+    private UserModel coorientador; //pode ou não ter um coorientador
 
     @NotBlank
     @Column(nullable = false)
@@ -50,6 +65,6 @@ public class PublicationModel {
 
     @NotBlank
     @Column(nullable = false)
-    @JsonFormat(pattern = "dd/mm/yyyy")
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataDaPublicacao;
 }

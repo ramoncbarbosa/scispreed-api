@@ -15,7 +15,6 @@ import lombok.*;
 public class DatabasesModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Setter(AccessLevel.NONE)
     @EqualsAndHashCode.Include
     private Long id;
 
