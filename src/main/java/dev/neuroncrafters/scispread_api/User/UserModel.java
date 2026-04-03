@@ -1,11 +1,12 @@
 package dev.neuroncrafters.scispread_api.User;
 
+
 import dev.neuroncrafters.scispread_api.Publication.PublicationModel;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.List;
 
@@ -29,17 +30,18 @@ public class UserModel {
     @Column(nullable = false)
     private String sobrenome;
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private UserLoginStatusEnum loginStatus;
 
-    @Column(unique = true, nullable = false)
+    @Column(unique = true, nullable = true)
     private String email;
 
-    @Column(unique = true, nullable = false)
+    @Column(unique = true, nullable = true)
     private String username;
 
-    @NotBlank(message = "A senha é obrigatória")
     @Size(min = 8, max = 36, message = "A senha ter entre 8 e 36 caracteres")
+    @Column(nullable = true)
     private String password;
 
     @NotNull
@@ -53,7 +55,7 @@ public class UserModel {
     private UserTituloEnum titulacao;
 
     @Column(nullable = false)
-    private String area_de_atuacao;
+    private String areaDeAtuacao;
 
     @Column(nullable = false)
     private String vinculo;
@@ -64,6 +66,7 @@ public class UserModel {
     @Column(nullable = true)
     private String foto;
 
+    @JsonIgnore
     //um user pode ter varias publicacoes
     @ManyToMany(mappedBy = "autores")
     private List<PublicationModel> publications;

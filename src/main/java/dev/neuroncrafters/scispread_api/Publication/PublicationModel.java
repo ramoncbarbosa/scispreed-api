@@ -47,6 +47,11 @@ public class PublicationModel {
 
     @ManyToMany
     @NotNull
+    @JoinTable(
+            name = "publications_autores",
+            joinColumns = @JoinColumn(name = "publications_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id")
+    )
     private List<UserModel> autores;
 
     @ManyToMany
